@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52EEA44B1C80295600EC8A5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA44A1C80295600EC8A5A /* main.m */; };
+		52EEA44E1C80295600EC8A5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA44D1C80295600EC8A5A /* AppDelegate.m */; };
+		52EEA4511C80295600EC8A5A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4501C80295600EC8A5A /* ViewController.m */; };
+		52EEA4541C80295600EC8A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EEA4521C80295600EC8A5A /* Main.storyboard */; };
+		52EEA4571C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4551C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld */; };
+		52EEA4591C80295600EC8A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EEA4581C80295600EC8A5A /* Assets.xcassets */; };
+		52EEA45C1C80295600EC8A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EEA45A1C80295600EC8A5A /* LaunchScreen.storyboard */; };
+		52EEA4671C80295600EC8A5A /* TAR_TUTORTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4661C80295600EC8A5A /* TAR_TUTORTests.m */; };
+		52EEA4721C80295600EC8A5A /* TAR_TUTORUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4711C80295600EC8A5A /* TAR_TUTORUITests.m */; };
+		52EEA4C31C80EDE700EC8A5A /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4B91C80EDE700EC8A5A /* QRCameraSwitchButton.m */; };
+		52EEA4C41C80EDE700EC8A5A /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4BB1C80EDE700EC8A5A /* QRCodeReader.m */; };
+		52EEA4C51C80EDE700EC8A5A /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4BE1C80EDE700EC8A5A /* QRCodeReaderView.m */; };
+		52EEA4C61C80EDE700EC8A5A /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4C01C80EDE700EC8A5A /* QRCodeReaderViewController.m */; };
+		52EEA4C71C80EDE700EC8A5A /* QRToggleTorchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4C21C80EDE700EC8A5A /* QRToggleTorchButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52EEA4631C80295600EC8A5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EEA43E1C80295600EC8A5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52EEA4451C80295600EC8A5A;
+			remoteInfo = "TAR TUTOR";
+		};
+		52EEA46E1C80295600EC8A5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EEA43E1C80295600EC8A5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52EEA4451C80295600EC8A5A;
+			remoteInfo = "TAR TUTOR";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		52EEA4461C80295600EC8A5A /* TAR TUTOR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TAR TUTOR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EEA44A1C80295600EC8A5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52EEA44C1C80295600EC8A5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		52EEA44D1C80295600EC8A5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		52EEA44F1C80295600EC8A5A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		52EEA4501C80295600EC8A5A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		52EEA4531C80295600EC8A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52EEA4561C80295600EC8A5A /* TAR_TUTOR.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TAR_TUTOR.xcdatamodel; sourceTree = "<group>"; };
+		52EEA4581C80295600EC8A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52EEA45B1C80295600EC8A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52EEA45D1C80295600EC8A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EEA4621C80295600EC8A5A /* TAR TUTORTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TAR TUTORTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EEA4661C80295600EC8A5A /* TAR_TUTORTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAR_TUTORTests.m; sourceTree = "<group>"; };
+		52EEA4681C80295600EC8A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EEA46D1C80295600EC8A5A /* TAR TUTORUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TAR TUTORUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EEA4711C80295600EC8A5A /* TAR_TUTORUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAR_TUTORUITests.m; sourceTree = "<group>"; };
+		52EEA4731C80295600EC8A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EEA4B81C80EDE700EC8A5A /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
+		52EEA4B91C80EDE700EC8A5A /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCameraSwitchButton.m; sourceTree = "<group>"; };
+		52EEA4BA1C80EDE700EC8A5A /* QRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
+		52EEA4BB1C80EDE700EC8A5A /* QRCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReader.m; sourceTree = "<group>"; };
+		52EEA4BC1C80EDE700EC8A5A /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		52EEA4BD1C80EDE700EC8A5A /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
+		52EEA4BE1C80EDE700EC8A5A /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
+		52EEA4BF1C80EDE700EC8A5A /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		52EEA4C01C80EDE700EC8A5A /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		52EEA4C11C80EDE700EC8A5A /* QRToggleTorchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRToggleTorchButton.h; sourceTree = "<group>"; };
+		52EEA4C21C80EDE700EC8A5A /* QRToggleTorchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRToggleTorchButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52EEA4431C80295600EC8A5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EEA45F1C80295600EC8A5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EEA46A1C80295600EC8A5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52EEA43D1C80295600EC8A5A = {
+			isa = PBXGroup;
+			children = (
+				52EEA4481C80295600EC8A5A /* TAR TUTOR */,
+				52EEA4651C80295600EC8A5A /* TAR TUTORTests */,
+				52EEA4701C80295600EC8A5A /* TAR TUTORUITests */,
+				52EEA4471C80295600EC8A5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52EEA4471C80295600EC8A5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52EEA4461C80295600EC8A5A /* TAR TUTOR.app */,
+				52EEA4621C80295600EC8A5A /* TAR TUTORTests.xctest */,
+				52EEA46D1C80295600EC8A5A /* TAR TUTORUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52EEA4481C80295600EC8A5A /* TAR TUTOR */ = {
+			isa = PBXGroup;
+			children = (
+				52EEA4B81C80EDE700EC8A5A /* QRCameraSwitchButton.h */,
+				52EEA4B91C80EDE700EC8A5A /* QRCameraSwitchButton.m */,
+				52EEA4BA1C80EDE700EC8A5A /* QRCodeReader.h */,
+				52EEA4BB1C80EDE700EC8A5A /* QRCodeReader.m */,
+				52EEA4BC1C80EDE700EC8A5A /* QRCodeReaderDelegate.h */,
+				52EEA4BD1C80EDE700EC8A5A /* QRCodeReaderView.h */,
+				52EEA4BE1C80EDE700EC8A5A /* QRCodeReaderView.m */,
+				52EEA4BF1C80EDE700EC8A5A /* QRCodeReaderViewController.h */,
+				52EEA4C01C80EDE700EC8A5A /* QRCodeReaderViewController.m */,
+				52EEA4C11C80EDE700EC8A5A /* QRToggleTorchButton.h */,
+				52EEA4C21C80EDE700EC8A5A /* QRToggleTorchButton.m */,
+				52EEA44C1C80295600EC8A5A /* AppDelegate.h */,
+				52EEA44D1C80295600EC8A5A /* AppDelegate.m */,
+				52EEA44F1C80295600EC8A5A /* ViewController.h */,
+				52EEA4501C80295600EC8A5A /* ViewController.m */,
+				52EEA4521C80295600EC8A5A /* Main.storyboard */,
+				52EEA4581C80295600EC8A5A /* Assets.xcassets */,
+				52EEA45A1C80295600EC8A5A /* LaunchScreen.storyboard */,
+				52EEA45D1C80295600EC8A5A /* Info.plist */,
+				52EEA4551C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld */,
+				52EEA4491C80295600EC8A5A /* Supporting Files */,
+			);
+			path = "TAR TUTOR";
+			sourceTree = "<group>";
+		};
+		52EEA4491C80295600EC8A5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52EEA44A1C80295600EC8A5A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52EEA4651C80295600EC8A5A /* TAR TUTORTests */ = {
+			isa = PBXGroup;
+			children = (
+				52EEA4661C80295600EC8A5A /* TAR_TUTORTests.m */,
+				52EEA4681C80295600EC8A5A /* Info.plist */,
+			);
+			path = "TAR TUTORTests";
+			sourceTree = "<group>";
+		};
+		52EEA4701C80295600EC8A5A /* TAR TUTORUITests */ = {
+			isa = PBXGroup;
+			children = (
+				52EEA4711C80295600EC8A5A /* TAR_TUTORUITests.m */,
+				52EEA4731C80295600EC8A5A /* Info.plist */,
+			);
+			path = "TAR TUTORUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52EEA4451C80295600EC8A5A /* TAR TUTOR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EEA4761C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTOR" */;
+			buildPhases = (
+				52EEA4421C80295600EC8A5A /* Sources */,
+				52EEA4431C80295600EC8A5A /* Frameworks */,
+				52EEA4441C80295600EC8A5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TAR TUTOR";
+			productName = "TAR TUTOR";
+			productReference = 52EEA4461C80295600EC8A5A /* TAR TUTOR.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52EEA4611C80295600EC8A5A /* TAR TUTORTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EEA4791C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTORTests" */;
+			buildPhases = (
+				52EEA45E1C80295600EC8A5A /* Sources */,
+				52EEA45F1C80295600EC8A5A /* Frameworks */,
+				52EEA4601C80295600EC8A5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52EEA4641C80295600EC8A5A /* PBXTargetDependency */,
+			);
+			name = "TAR TUTORTests";
+			productName = "TAR TUTORTests";
+			productReference = 52EEA4621C80295600EC8A5A /* TAR TUTORTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		52EEA46C1C80295600EC8A5A /* TAR TUTORUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EEA47C1C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTORUITests" */;
+			buildPhases = (
+				52EEA4691C80295600EC8A5A /* Sources */,
+				52EEA46A1C80295600EC8A5A /* Frameworks */,
+				52EEA46B1C80295600EC8A5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52EEA46F1C80295600EC8A5A /* PBXTargetDependency */,
+			);
+			name = "TAR TUTORUITests";
+			productName = "TAR TUTORUITests";
+			productReference = 52EEA46D1C80295600EC8A5A /* TAR TUTORUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52EEA43E1C80295600EC8A5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Jiasheng Zhu";
+				TargetAttributes = {
+					52EEA4451C80295600EC8A5A = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					52EEA4611C80295600EC8A5A = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 52EEA4451C80295600EC8A5A;
+					};
+					52EEA46C1C80295600EC8A5A = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 52EEA4451C80295600EC8A5A;
+					};
+				};
+			};
+			buildConfigurationList = 52EEA4411C80295600EC8A5A /* Build configuration list for PBXProject "TAR TUTOR" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52EEA43D1C80295600EC8A5A;
+			productRefGroup = 52EEA4471C80295600EC8A5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52EEA4451C80295600EC8A5A /* TAR TUTOR */,
+				52EEA4611C80295600EC8A5A /* TAR TUTORTests */,
+				52EEA46C1C80295600EC8A5A /* TAR TUTORUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52EEA4441C80295600EC8A5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EEA45C1C80295600EC8A5A /* LaunchScreen.storyboard in Resources */,
+				52EEA4591C80295600EC8A5A /* Assets.xcassets in Resources */,
+				52EEA4541C80295600EC8A5A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EEA4601C80295600EC8A5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EEA46B1C80295600EC8A5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52EEA4421C80295600EC8A5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EEA4511C80295600EC8A5A /* ViewController.m in Sources */,
+				52EEA4C51C80EDE700EC8A5A /* QRCodeReaderView.m in Sources */,
+				52EEA44E1C80295600EC8A5A /* AppDelegate.m in Sources */,
+				52EEA4C41C80EDE700EC8A5A /* QRCodeReader.m in Sources */,
+				52EEA4C31C80EDE700EC8A5A /* QRCameraSwitchButton.m in Sources */,
+				52EEA4571C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld in Sources */,
+				52EEA44B1C80295600EC8A5A /* main.m in Sources */,
+				52EEA4C71C80EDE700EC8A5A /* QRToggleTorchButton.m in Sources */,
+				52EEA4C61C80EDE700EC8A5A /* QRCodeReaderViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EEA45E1C80295600EC8A5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EEA4671C80295600EC8A5A /* TAR_TUTORTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EEA4691C80295600EC8A5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EEA4721C80295600EC8A5A /* TAR_TUTORUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52EEA4641C80295600EC8A5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52EEA4451C80295600EC8A5A /* TAR TUTOR */;
+			targetProxy = 52EEA4631C80295600EC8A5A /* PBXContainerItemProxy */;
+		};
+		52EEA46F1C80295600EC8A5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52EEA4451C80295600EC8A5A /* TAR TUTOR */;
+			targetProxy = 52EEA46E1C80295600EC8A5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52EEA4521C80295600EC8A5A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EEA4531C80295600EC8A5A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52EEA45A1C80295600EC8A5A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EEA45B1C80295600EC8A5A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52EEA4741C80295600EC8A5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		52EEA4751C80295600EC8A5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52EEA4771C80295600EC8A5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "TAR TUTOR/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "z.TAR-TUTOR";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52EEA4781C80295600EC8A5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "TAR TUTOR/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "z.TAR-TUTOR";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		52EEA47A1C80295600EC8A5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TAR TUTORTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "z.TAR-TUTORTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TAR TUTOR.app/TAR TUTOR";
+			};
+			name = Debug;
+		};
+		52EEA47B1C80295600EC8A5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TAR TUTORTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "z.TAR-TUTORTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TAR TUTOR.app/TAR TUTOR";
+			};
+			name = Release;
+		};
+		52EEA47D1C80295600EC8A5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TAR TUTORUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "z.TAR-TUTORUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "TAR TUTOR";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		52EEA47E1C80295600EC8A5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TAR TUTORUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "z.TAR-TUTORUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "TAR TUTOR";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52EEA4411C80295600EC8A5A /* Build configuration list for PBXProject "TAR TUTOR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EEA4741C80295600EC8A5A /* Debug */,
+				52EEA4751C80295600EC8A5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52EEA4761C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTOR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EEA4771C80295600EC8A5A /* Debug */,
+				52EEA4781C80295600EC8A5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		52EEA4791C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTORTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EEA47A1C80295600EC8A5A /* Debug */,
+				52EEA47B1C80295600EC8A5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		52EEA47C1C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTORUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EEA47D1C80295600EC8A5A /* Debug */,
+				52EEA47E1C80295600EC8A5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		52EEA4551C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				52EEA4561C80295600EC8A5A /* TAR_TUTOR.xcdatamodel */,
+			);
+			currentVersion = 52EEA4561C80295600EC8A5A /* TAR_TUTOR.xcdatamodel */;
+			path = TAR_TUTOR.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 52EEA43E1C80295600EC8A5A /* Project object */;
+}
