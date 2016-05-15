@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52215C3D1CB473A50092D8C0 /* CurrentClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52215C3C1CB473A50092D8C0 /* CurrentClassViewController.m */; };
+		524DA2791CC8097100E54422 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DA2781CC8097100E54422 /* ResultsViewController.m */; };
+		52801CBB1CB38A8600062357 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CBA1CB38A8600062357 /* SignInViewController.m */; };
+		52801CBE1CB43BE300062357 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CBD1CB43BE300062357 /* SignUpViewController.m */; };
+		52801CC11CB442D200062357 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CC01CB442D200062357 /* MainViewController.m */; };
 		52EEA44B1C80295600EC8A5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA44A1C80295600EC8A5A /* main.m */; };
 		52EEA44E1C80295600EC8A5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA44D1C80295600EC8A5A /* AppDelegate.m */; };
-		52EEA4511C80295600EC8A5A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4501C80295600EC8A5A /* ViewController.m */; };
 		52EEA4541C80295600EC8A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EEA4521C80295600EC8A5A /* Main.storyboard */; };
 		52EEA4571C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4551C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld */; };
 		52EEA4591C80295600EC8A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EEA4581C80295600EC8A5A /* Assets.xcassets */; };
 		52EEA45C1C80295600EC8A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EEA45A1C80295600EC8A5A /* LaunchScreen.storyboard */; };
 		52EEA4671C80295600EC8A5A /* TAR_TUTORTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4661C80295600EC8A5A /* TAR_TUTORTests.m */; };
 		52EEA4721C80295600EC8A5A /* TAR_TUTORUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4711C80295600EC8A5A /* TAR_TUTORUITests.m */; };
-		52EEA4C31C80EDE700EC8A5A /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4B91C80EDE700EC8A5A /* QRCameraSwitchButton.m */; };
-		52EEA4C41C80EDE700EC8A5A /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4BB1C80EDE700EC8A5A /* QRCodeReader.m */; };
-		52EEA4C51C80EDE700EC8A5A /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4BE1C80EDE700EC8A5A /* QRCodeReaderView.m */; };
-		52EEA4C61C80EDE700EC8A5A /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4C01C80EDE700EC8A5A /* QRCodeReaderViewController.m */; };
-		52EEA4C71C80EDE700EC8A5A /* QRToggleTorchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4C21C80EDE700EC8A5A /* QRToggleTorchButton.m */; };
+		886F7F6598E1058CE8EB8DC7 /* libPods-TAR TUTOR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3360D27A4C90ABDBFB1F96E6 /* libPods-TAR TUTOR.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +41,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3360D27A4C90ABDBFB1F96E6 /* libPods-TAR TUTOR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TAR TUTOR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52215C3B1CB473990092D8C0 /* CurrentClassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentClassViewController.h; sourceTree = "<group>"; };
+		52215C3C1CB473A50092D8C0 /* CurrentClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentClassViewController.m; sourceTree = "<group>"; };
+		524DA2771CC8095500E54422 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		524DA2781CC8097100E54422 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		52801CB91CB38A5A00062357 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		52801CBA1CB38A8600062357 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		52801CBC1CB43BD400062357 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		52801CBD1CB43BE300062357 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		52801CBF1CB442BF00062357 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		52801CC01CB442D200062357 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		52EEA4461C80295600EC8A5A /* TAR TUTOR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TAR TUTOR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EEA44A1C80295600EC8A5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52EEA44C1C80295600EC8A5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52EEA44D1C80295600EC8A5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		52EEA44F1C80295600EC8A5A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		52EEA4501C80295600EC8A5A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		52EEA4531C80295600EC8A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52EEA4561C80295600EC8A5A /* TAR_TUTOR.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TAR_TUTOR.xcdatamodel; sourceTree = "<group>"; };
 		52EEA4581C80295600EC8A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,17 +67,8 @@
 		52EEA46D1C80295600EC8A5A /* TAR TUTORUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TAR TUTORUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EEA4711C80295600EC8A5A /* TAR_TUTORUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAR_TUTORUITests.m; sourceTree = "<group>"; };
 		52EEA4731C80295600EC8A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52EEA4B81C80EDE700EC8A5A /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
-		52EEA4B91C80EDE700EC8A5A /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCameraSwitchButton.m; sourceTree = "<group>"; };
-		52EEA4BA1C80EDE700EC8A5A /* QRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
-		52EEA4BB1C80EDE700EC8A5A /* QRCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReader.m; sourceTree = "<group>"; };
-		52EEA4BC1C80EDE700EC8A5A /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
-		52EEA4BD1C80EDE700EC8A5A /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
-		52EEA4BE1C80EDE700EC8A5A /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
-		52EEA4BF1C80EDE700EC8A5A /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
-		52EEA4C01C80EDE700EC8A5A /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
-		52EEA4C11C80EDE700EC8A5A /* QRToggleTorchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRToggleTorchButton.h; sourceTree = "<group>"; };
-		52EEA4C21C80EDE700EC8A5A /* QRToggleTorchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRToggleTorchButton.m; sourceTree = "<group>"; };
+		A6D0E12DC51FC94E17695068 /* Pods-TAR TUTOR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTOR.release.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR.release.xcconfig"; sourceTree = "<group>"; };
+		E860316AAC299B25668CC860 /* Pods-TAR TUTOR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTOR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				886F7F6598E1058CE8EB8DC7 /* libPods-TAR TUTOR.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +97,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13B5033F9B40B93E49343FDE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3360D27A4C90ABDBFB1F96E6 /* libPods-TAR TUTOR.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D190AB0568BB672B34B7039 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E860316AAC299B25668CC860 /* Pods-TAR TUTOR.debug.xcconfig */,
+				A6D0E12DC51FC94E17695068 /* Pods-TAR TUTOR.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		52EEA43D1C80295600EC8A5A = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +121,8 @@
 				52EEA4651C80295600EC8A5A /* TAR TUTORTests */,
 				52EEA4701C80295600EC8A5A /* TAR TUTORUITests */,
 				52EEA4471C80295600EC8A5A /* Products */,
+				1D190AB0568BB672B34B7039 /* Pods */,
+				13B5033F9B40B93E49343FDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,21 +139,18 @@
 		52EEA4481C80295600EC8A5A /* TAR TUTOR */ = {
 			isa = PBXGroup;
 			children = (
-				52EEA4B81C80EDE700EC8A5A /* QRCameraSwitchButton.h */,
-				52EEA4B91C80EDE700EC8A5A /* QRCameraSwitchButton.m */,
-				52EEA4BA1C80EDE700EC8A5A /* QRCodeReader.h */,
-				52EEA4BB1C80EDE700EC8A5A /* QRCodeReader.m */,
-				52EEA4BC1C80EDE700EC8A5A /* QRCodeReaderDelegate.h */,
-				52EEA4BD1C80EDE700EC8A5A /* QRCodeReaderView.h */,
-				52EEA4BE1C80EDE700EC8A5A /* QRCodeReaderView.m */,
-				52EEA4BF1C80EDE700EC8A5A /* QRCodeReaderViewController.h */,
-				52EEA4C01C80EDE700EC8A5A /* QRCodeReaderViewController.m */,
-				52EEA4C11C80EDE700EC8A5A /* QRToggleTorchButton.h */,
-				52EEA4C21C80EDE700EC8A5A /* QRToggleTorchButton.m */,
 				52EEA44C1C80295600EC8A5A /* AppDelegate.h */,
 				52EEA44D1C80295600EC8A5A /* AppDelegate.m */,
-				52EEA44F1C80295600EC8A5A /* ViewController.h */,
-				52EEA4501C80295600EC8A5A /* ViewController.m */,
+				52801CB91CB38A5A00062357 /* SignInViewController.h */,
+				52801CBA1CB38A8600062357 /* SignInViewController.m */,
+				52801CBC1CB43BD400062357 /* SignUpViewController.h */,
+				52801CBD1CB43BE300062357 /* SignUpViewController.m */,
+				52801CBF1CB442BF00062357 /* MainViewController.h */,
+				52801CC01CB442D200062357 /* MainViewController.m */,
+				52215C3B1CB473990092D8C0 /* CurrentClassViewController.h */,
+				52215C3C1CB473A50092D8C0 /* CurrentClassViewController.m */,
+				524DA2771CC8095500E54422 /* ResultsViewController.h */,
+				524DA2781CC8097100E54422 /* ResultsViewController.m */,
 				52EEA4521C80295600EC8A5A /* Main.storyboard */,
 				52EEA4581C80295600EC8A5A /* Assets.xcassets */,
 				52EEA45A1C80295600EC8A5A /* LaunchScreen.storyboard */,
@@ -177,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EEA4761C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTOR" */;
 			buildPhases = (
+				1F747F56FE145598FBF5E850 /* Check Pods Manifest.lock */,
 				52EEA4421C80295600EC8A5A /* Sources */,
 				52EEA4431C80295600EC8A5A /* Frameworks */,
 				52EEA4441C80295600EC8A5A /* Resources */,
+				A62BD81BE4A9BA1175BB38E2 /* Embed Pods Frameworks */,
+				C30FFE7D0CB1842F64B36A61 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,20 +315,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F747F56FE145598FBF5E850 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A62BD81BE4A9BA1175BB38E2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C30FFE7D0CB1842F64B36A61 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52EEA4421C80295600EC8A5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52EEA4511C80295600EC8A5A /* ViewController.m in Sources */,
-				52EEA4C51C80EDE700EC8A5A /* QRCodeReaderView.m in Sources */,
+				52801CBB1CB38A8600062357 /* SignInViewController.m in Sources */,
+				52215C3D1CB473A50092D8C0 /* CurrentClassViewController.m in Sources */,
 				52EEA44E1C80295600EC8A5A /* AppDelegate.m in Sources */,
-				52EEA4C41C80EDE700EC8A5A /* QRCodeReader.m in Sources */,
-				52EEA4C31C80EDE700EC8A5A /* QRCameraSwitchButton.m in Sources */,
+				524DA2791CC8097100E54422 /* ResultsViewController.m in Sources */,
 				52EEA4571C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld in Sources */,
+				52801CC11CB442D200062357 /* MainViewController.m in Sources */,
 				52EEA44B1C80295600EC8A5A /* main.m in Sources */,
-				52EEA4C71C80EDE700EC8A5A /* QRToggleTorchButton.m in Sources */,
-				52EEA4C61C80EDE700EC8A5A /* QRCodeReaderViewController.m in Sources */,
+				52801CBE1CB43BE300062357 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,22 +512,24 @@
 		};
 		52EEA4771C80295600EC8A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E860316AAC299B25668CC860 /* Pods-TAR TUTOR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "TAR TUTOR/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "z.TAR-TUTOR";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Z.TARTUTOR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		52EEA4781C80295600EC8A5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6D0E12DC51FC94E17695068 /* Pods-TAR TUTOR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "TAR TUTOR/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "z.TAR-TUTOR";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Z.TARTUTOR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -532,6 +601,7 @@
 				52EEA4781C80295600EC8A5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52EEA4791C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTORTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +610,7 @@
 				52EEA47B1C80295600EC8A5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52EEA47C1C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTORUITests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +619,7 @@
 				52EEA47E1C80295600EC8A5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

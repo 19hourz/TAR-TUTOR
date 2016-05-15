@@ -13,10 +13,23 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize firebase, user_ref, storyboard, defaultAction, uid, name;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    firebase = [[Firebase alloc] initWithUrl:@"https://taruibe.firebaseio.com"];
+    user_ref = [firebase childByAppendingPath:@"users"];
+    storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString* signout = [defaults objectForKey:@"signOut"];
+    if(signout == nil || [signout isEqualToString:@""]){
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+    }
+    else if([signout isEqualToString:@"False"]){
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    }
+    //self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"ResultsViewController"];
     return YES;
 }
 
