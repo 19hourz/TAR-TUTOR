@@ -22,7 +22,7 @@
 @synthesize appDelegate;
 
 UIActivityIndicatorView* mainSpinner;
-Firebase* loadAllClasses;
+FIRDatabaseReference* loadAllClasses;
 NSDictionary* allClasses;
 UIScrollView *rightScrollView;
 CGFloat scrollViewContentHeight;
@@ -66,7 +66,7 @@ NSDictionary *currentClass;
     [resumeButton.titleLabel setFont:[UIFont systemFontOfSize:20]];
     [resumeButton setTitleColor:[UIColor colorWithRed:26/255.0 green:102/255.0 blue:140/255.0 alpha:1] forState:UIControlStateNormal];
     [resumeButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
-    resumeButton.frame = CGRectMake(screenRect.size.width*0.3, screenRect.size.height*0.52, screenRect.size.width*0.4, screenRect.size.width*0.4);
+    resumeButton.frame = CGRectMake(screenRect.size.width*0.3, screenRect.size.height*0.47, screenRect.size.width*0.4, screenRect.size.width*0.4);
     resumeButton.clipsToBounds = YES;
     resumeButton.layer.cornerRadius = screenRect.size.width*0.4/2.0f;
     resumeButton.layer.borderColor=[UIColor redColor].CGColor;
@@ -104,10 +104,10 @@ NSDictionary *currentClass;
     [right addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:right];
     //data connection
-    loadAllClasses = [[Firebase alloc] initWithUrl:@"https://taruibe.firebaseio.com"];
-    loadAllClasses = [loadAllClasses childByAppendingPath:@"classes"];
+    loadAllClasses = [[FIRDatabase database] reference];
+    loadAllClasses = [loadAllClasses child:@"classes"];
     allClasses = [[NSDictionary alloc] init];
-    [loadAllClasses observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+    [loadAllClasses observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
         allClasses = snapshot.value;
         if (allClasses == nil || ![allClasses isKindOfClass:[NSDictionary class]]) {
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"There is no class found" preferredStyle:UIAlertControllerStyleAlert];
@@ -131,7 +131,7 @@ NSDictionary *currentClass;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     appDelegate.name = [defaults objectForKey:@"name"];
-    [appDelegate.firebase authUser:[defaults objectForKey:@"account"] password:[defaults objectForKey:@"password"] withCompletionBlock:^(NSError *error, FAuthData *authData) {
+    [[FIRAuth auth] signInWithEmail:[defaults objectForKey:@"account"] password:[defaults objectForKey:@"password"] completion:^(FIRUser *_Nullable user,NSError *error){
         if (error) {
             if([mainSpinner isAnimating]){
                 [mainSpinner stopAnimating];
@@ -146,15 +146,15 @@ NSDictionary *currentClass;
             [self presentViewController:alert animated:YES completion:nil];
             
         } else {
-            Firebase* checkIfIsTutor = [[Firebase alloc] initWithUrl:@"https://taruibe.firebaseio.com"];
-            checkIfIsTutor = [checkIfIsTutor childByAppendingPath:@"users"];
-            [checkIfIsTutor observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            FIRDatabaseReference* checkIfIsTutor = [[FIRDatabase database] reference];
+            checkIfIsTutor = [checkIfIsTutor child:@"users"];
+            [checkIfIsTutor observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
                 NSDictionary *allUsers = snapshot.value;
                 if([mainSpinner isAnimating]){
                     [mainSpinner stopAnimating];
                 }
-                if([allUsers objectForKey:authData.uid]!=nil){
-                    allUsers = allUsers[authData.uid];
+                if([allUsers objectForKey:user.uid]!=nil){
+                    allUsers = allUsers[user.uid];
                     if([allUsers[@"id"] isEqualToString:@"tutor"]){
                         [defaults setObject:@"False" forKey:@"signOut"];
                         [defaults setObject:allUsers[@"name"] forKey:@"name"];
@@ -171,10 +171,29 @@ NSDictionary *currentClass;
                     }
                 }
             }];
-            appDelegate.uid = authData.uid;
+            appDelegate.uid = user.uid;
         }
     }];
-    
+    // add advertisement
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat height;
+    if (screenRect.size.height <= 400) {
+        height = 32.0;
+    }
+    else if(screenRect.size.height > 720){
+        height = 90.0;
+    }
+    else{
+        height = 50.0;
+    }
+    GADBannerView  *bannerview = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait origin:CGPointMake(0, screenRect.size.height - height)];
+    bannerview.adUnitID = @"ca-app-pub-4823300671805719/3134098385";
+    bannerview.rootViewController = self;
+    GADRequest *request = [[GADRequest alloc] init];
+    request.testDevices = @[ @"b58a64b5fb68d1edd21ac7fc32a335fc" ];
+    //[bannerview loadRequest:request];
+    [bannerview loadRequest:[GADRequest request]];
+    [self.view addSubview:bannerview];
 }
 
 - (void)didTapButton:(UIButton *)button{
@@ -191,9 +210,9 @@ NSDictionary *currentClass;
     }
     else if(button.tag == 1){
         [mainSpinner startAnimating];
-        Firebase *oberser = appDelegate.firebase;
-        [oberser childByAppendingPath:@"classes"];
-        [oberser observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        FIRDatabaseReference *oberser = appDelegate.firebase;
+        [oberser child:@"classes"];
+        [oberser observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
             NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
             [dateformate setDateFormat:@"dd-MM-YYYY"];
             NSString *date_String=[dateformate stringFromDate:[NSDate date]];
@@ -212,7 +231,7 @@ NSDictionary *currentClass;
                 }
                 NSString *classuid = [NSString stringWithFormat:@"%lu", (unsigned long)uid];
                 NSDictionary *classinfo = @{@"code" : classuid,
-                                           @"instructor" : oberser.authData.uid};
+                                           @"instructor" : appDelegate.uid};
                 NSDictionary *newClass = @{classuid : classinfo};
                 NSDictionary *newClasses = @{date_String : newClass};
                 NSDictionary *classes = @{@"classes" : newClasses};
@@ -258,9 +277,9 @@ NSDictionary *currentClass;
     }
     else if(button.tag == 2){
         [mainSpinner startAnimating];
-        Firebase *oberser = appDelegate.firebase;
-        [oberser childByAppendingPath:@"classes"];
-        [oberser observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        FIRDatabaseReference *oberser = appDelegate.firebase;
+        [oberser child:@"classes"];
+        [oberser observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
             NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
             [dateformate setDateFormat:@"dd-MM-YYYY"];
             NSString *date_String=[dateformate stringFromDate:[NSDate date]];

@@ -52,11 +52,11 @@
     NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
     [dateformate setDateFormat:@"dd-MM-YYYY"];
     NSString *date_String=[dateformate stringFromDate:[NSDate date]];
-    Firebase *currClass = [appDelegate.firebase childByAppendingPath:@"classes"];
-    currClass = [currClass childByAppendingPath:date_String];
-    currClass = [currClass childByAppendingPath:appDelegate.currentClassCode];
-    currClass = [currClass childByAppendingPath:@"students"];
-    [currClass observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+    FIRDatabaseReference *currClass = [appDelegate.firebase child:@"classes"];
+    currClass = [currClass child:date_String];
+    currClass = [currClass child:appDelegate.currentClassCode];
+    currClass = [currClass child:@"students"];
+    [currClass observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
         NSLog(@"activated");
         NSDictionary *newStudent = snapshot.value;
         CGRect contentRect = CGRectZero;

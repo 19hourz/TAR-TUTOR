@@ -201,7 +201,7 @@ UIActivityIndicatorView* spinner;
         }
         else{
             [spinner startAnimating];
-            [appDelegate.firebase createUser:emailTextField.text password:passwordTextField.text withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
+            [[FIRAuth auth] createUserWithEmail:emailTextField.text password:passwordTextField.text completion:^(FIRUser * _Nullable user,NSError *error) {
                 if (error) {
                     NSString *errorMessage = [error localizedDescription];
                     [spinner stopAnimating];
@@ -209,7 +209,7 @@ UIActivityIndicatorView* spinner;
                     [alert addAction:appDelegate.defaultAction];
                     [self presentViewController:alert animated:YES completion:nil];
                 } else {
-                    [appDelegate.firebase authUser:emailTextField.text password:passwordTextField.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
+                    [[FIRAuth auth] signInWithEmail:emailTextField.text password:passwordTextField.text completion:^(FIRUser *_Nullable user,NSError *error) {
                         if (error) {
                             NSString *errorMessage = [error localizedDescription];
                             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
@@ -227,7 +227,7 @@ UIActivityIndicatorView* spinner;
                             [appDelegate.user_ref updateChildValues:new_user];
                         }
                     }];
-                    appDelegate.uid = result[@"uid"];
+                    appDelegate.uid = user.uid;
                     [spinner stopAnimating];
                     NSLog(@"user should have signed up");
                     UIViewController* viewcontroller = [appDelegate.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];

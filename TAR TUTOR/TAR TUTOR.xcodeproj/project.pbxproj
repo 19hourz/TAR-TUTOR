@@ -12,6 +12,7 @@
 		52801CBB1CB38A8600062357 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CBA1CB38A8600062357 /* SignInViewController.m */; };
 		52801CBE1CB43BE300062357 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CBD1CB43BE300062357 /* SignUpViewController.m */; };
 		52801CC11CB442D200062357 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CC01CB442D200062357 /* MainViewController.m */; };
+		5292753B1CF2C56100656B88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5292753A1CF2C56100656B88 /* GoogleService-Info.plist */; };
 		52EEA44B1C80295600EC8A5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA44A1C80295600EC8A5A /* main.m */; };
 		52EEA44E1C80295600EC8A5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA44D1C80295600EC8A5A /* AppDelegate.m */; };
 		52EEA4541C80295600EC8A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EEA4521C80295600EC8A5A /* Main.storyboard */; };
@@ -20,7 +21,9 @@
 		52EEA45C1C80295600EC8A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EEA45A1C80295600EC8A5A /* LaunchScreen.storyboard */; };
 		52EEA4671C80295600EC8A5A /* TAR_TUTORTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4661C80295600EC8A5A /* TAR_TUTORTests.m */; };
 		52EEA4721C80295600EC8A5A /* TAR_TUTORUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEA4711C80295600EC8A5A /* TAR_TUTORUITests.m */; };
-		886F7F6598E1058CE8EB8DC7 /* libPods-TAR TUTOR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3360D27A4C90ABDBFB1F96E6 /* libPods-TAR TUTOR.a */; };
+		53B6ECA06A7F20E3DE861701 /* libPods-TAR TUTOR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFB8CDCBC1167B03FB1E27 /* libPods-TAR TUTOR.a */; };
+		CA74DB4A205CF600E071DD89 /* libPods-TAR TUTORUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E12EDC8B87C5B0B6286C4BD /* libPods-TAR TUTORUITests.a */; };
+		F488294F87EAF763B9D2A572 /* libPods-TAR TUTORTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 927C8BD4D6CBD7338B348E3F /* libPods-TAR TUTORTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3360D27A4C90ABDBFB1F96E6 /* libPods-TAR TUTOR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TAR TUTOR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E12EDC8B87C5B0B6286C4BD /* libPods-TAR TUTORUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TAR TUTORUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4743D49C234A98475367CEB7 /* Pods-TAR TUTOR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTOR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR.debug.xcconfig"; sourceTree = "<group>"; };
 		52215C3B1CB473990092D8C0 /* CurrentClassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentClassViewController.h; sourceTree = "<group>"; };
 		52215C3C1CB473A50092D8C0 /* CurrentClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentClassViewController.m; sourceTree = "<group>"; };
 		524DA2771CC8095500E54422 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
@@ -52,6 +56,7 @@
 		52801CBD1CB43BE300062357 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		52801CBF1CB442BF00062357 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		52801CC01CB442D200062357 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		5292753A1CF2C56100656B88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52EEA4461C80295600EC8A5A /* TAR TUTOR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TAR TUTOR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EEA44A1C80295600EC8A5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52EEA44C1C80295600EC8A5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,8 +72,13 @@
 		52EEA46D1C80295600EC8A5A /* TAR TUTORUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TAR TUTORUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EEA4711C80295600EC8A5A /* TAR_TUTORUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAR_TUTORUITests.m; sourceTree = "<group>"; };
 		52EEA4731C80295600EC8A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6D0E12DC51FC94E17695068 /* Pods-TAR TUTOR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTOR.release.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR.release.xcconfig"; sourceTree = "<group>"; };
-		E860316AAC299B25668CC860 /* Pods-TAR TUTOR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTOR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR.debug.xcconfig"; sourceTree = "<group>"; };
+		5A791FA4174A465343272008 /* Pods-TAR TUTORUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTORUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTORUITests/Pods-TAR TUTORUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		650D5CCB3A8298B12374F10B /* Pods-TAR TUTORTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTORTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTORTests/Pods-TAR TUTORTests.release.xcconfig"; sourceTree = "<group>"; };
+		927C8BD4D6CBD7338B348E3F /* libPods-TAR TUTORTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TAR TUTORTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA82273B17449D419AF9687F /* Pods-TAR TUTORTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTORTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTORTests/Pods-TAR TUTORTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EAEFB8CDCBC1167B03FB1E27 /* libPods-TAR TUTOR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TAR TUTOR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F120B2291E6CC5ED3038F338 /* Pods-TAR TUTORUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTORUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTORUITests/Pods-TAR TUTORUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F1F426ECD8DAB62A8AB30183 /* Pods-TAR TUTOR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTOR.release.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				886F7F6598E1058CE8EB8DC7 /* libPods-TAR TUTOR.a in Frameworks */,
+				53B6ECA06A7F20E3DE861701 /* libPods-TAR TUTOR.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F488294F87EAF763B9D2A572 /* libPods-TAR TUTORTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,29 +102,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA74DB4A205CF600E071DD89 /* libPods-TAR TUTORUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B5033F9B40B93E49343FDE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3360D27A4C90ABDBFB1F96E6 /* libPods-TAR TUTOR.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1D190AB0568BB672B34B7039 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E860316AAC299B25668CC860 /* Pods-TAR TUTOR.debug.xcconfig */,
-				A6D0E12DC51FC94E17695068 /* Pods-TAR TUTOR.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		52EEA43D1C80295600EC8A5A = {
 			isa = PBXGroup;
 			children = (
@@ -121,8 +116,8 @@
 				52EEA4651C80295600EC8A5A /* TAR TUTORTests */,
 				52EEA4701C80295600EC8A5A /* TAR TUTORUITests */,
 				52EEA4471C80295600EC8A5A /* Products */,
-				1D190AB0568BB672B34B7039 /* Pods */,
-				13B5033F9B40B93E49343FDE /* Frameworks */,
+				CD05E7FEF02F40B94E346F5C /* Pods */,
+				6051924AC3DCEC71AEEC1AED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +134,7 @@
 		52EEA4481C80295600EC8A5A /* TAR TUTOR */ = {
 			isa = PBXGroup;
 			children = (
+				5292753A1CF2C56100656B88 /* GoogleService-Info.plist */,
 				52EEA44C1C80295600EC8A5A /* AppDelegate.h */,
 				52EEA44D1C80295600EC8A5A /* AppDelegate.m */,
 				52801CB91CB38A5A00062357 /* SignInViewController.h */,
@@ -187,6 +183,29 @@
 			path = "TAR TUTORUITests";
 			sourceTree = "<group>";
 		};
+		6051924AC3DCEC71AEEC1AED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAEFB8CDCBC1167B03FB1E27 /* libPods-TAR TUTOR.a */,
+				927C8BD4D6CBD7338B348E3F /* libPods-TAR TUTORTests.a */,
+				2E12EDC8B87C5B0B6286C4BD /* libPods-TAR TUTORUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD05E7FEF02F40B94E346F5C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4743D49C234A98475367CEB7 /* Pods-TAR TUTOR.debug.xcconfig */,
+				F1F426ECD8DAB62A8AB30183 /* Pods-TAR TUTOR.release.xcconfig */,
+				DA82273B17449D419AF9687F /* Pods-TAR TUTORTests.debug.xcconfig */,
+				650D5CCB3A8298B12374F10B /* Pods-TAR TUTORTests.release.xcconfig */,
+				5A791FA4174A465343272008 /* Pods-TAR TUTORUITests.debug.xcconfig */,
+				F120B2291E6CC5ED3038F338 /* Pods-TAR TUTORUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,12 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EEA4761C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTOR" */;
 			buildPhases = (
-				1F747F56FE145598FBF5E850 /* Check Pods Manifest.lock */,
+				AA3838F82FC7932B69F8D373 /* 📦 Check Pods Manifest.lock */,
 				52EEA4421C80295600EC8A5A /* Sources */,
 				52EEA4431C80295600EC8A5A /* Frameworks */,
 				52EEA4441C80295600EC8A5A /* Resources */,
-				A62BD81BE4A9BA1175BB38E2 /* Embed Pods Frameworks */,
-				C30FFE7D0CB1842F64B36A61 /* Copy Pods Resources */,
+				46F59F0F0A153D4ED7AFD9B3 /* 📦 Embed Pods Frameworks */,
+				8C08C1CCADD50661BA5C59CD /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EEA4791C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTORTests" */;
 			buildPhases = (
+				A9E340F0695FA5FE593C4614 /* 📦 Check Pods Manifest.lock */,
 				52EEA45E1C80295600EC8A5A /* Sources */,
 				52EEA45F1C80295600EC8A5A /* Frameworks */,
 				52EEA4601C80295600EC8A5A /* Resources */,
+				8981FB7CB88AFF2C8149E34D /* 📦 Embed Pods Frameworks */,
+				4364B09B635FB6894B05EC9B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EEA47C1C80295600EC8A5A /* Build configuration list for PBXNativeTarget "TAR TUTORUITests" */;
 			buildPhases = (
+				B320C2D97326A0984DFE5A94 /* 📦 Check Pods Manifest.lock */,
 				52EEA4691C80295600EC8A5A /* Sources */,
 				52EEA46A1C80295600EC8A5A /* Frameworks */,
 				52EEA46B1C80295600EC8A5A /* Resources */,
+				B4D496648D7C640492B764A9 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52EEA45C1C80295600EC8A5A /* LaunchScreen.storyboard in Resources */,
+				5292753B1CF2C56100656B88 /* GoogleService-Info.plist in Resources */,
 				52EEA4591C80295600EC8A5A /* Assets.xcassets in Resources */,
 				52EEA4541C80295600EC8A5A /* Main.storyboard in Resources */,
 			);
@@ -316,29 +341,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1F747F56FE145598FBF5E850 /* Check Pods Manifest.lock */ = {
+		4364B09B635FB6894B05EC9B /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TAR TUTORTests/Pods-TAR TUTORTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A62BD81BE4A9BA1175BB38E2 /* Embed Pods Frameworks */ = {
+		46F59F0F0A153D4ED7AFD9B3 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,19 +371,94 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C30FFE7D0CB1842F64B36A61 /* Copy Pods Resources */ = {
+		8981FB7CB88AFF2C8149E34D /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TAR TUTORTests/Pods-TAR TUTORTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C08C1CCADD50661BA5C59CD /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9E340F0695FA5FE593C4614 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA3838F82FC7932B69F8D373 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B320C2D97326A0984DFE5A94 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4D496648D7C640492B764A9 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TAR TUTORUITests/Pods-TAR TUTORUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -512,7 +612,7 @@
 		};
 		52EEA4771C80295600EC8A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E860316AAC299B25668CC860 /* Pods-TAR TUTOR.debug.xcconfig */;
+			baseConfigurationReference = 4743D49C234A98475367CEB7 /* Pods-TAR TUTOR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "TAR TUTOR/Info.plist";
@@ -524,7 +624,7 @@
 		};
 		52EEA4781C80295600EC8A5A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6D0E12DC51FC94E17695068 /* Pods-TAR TUTOR.release.xcconfig */;
+			baseConfigurationReference = F1F426ECD8DAB62A8AB30183 /* Pods-TAR TUTOR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "TAR TUTOR/Info.plist";
@@ -536,6 +636,7 @@
 		};
 		52EEA47A1C80295600EC8A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA82273B17449D419AF9687F /* Pods-TAR TUTORTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "TAR TUTORTests/Info.plist";
@@ -548,6 +649,7 @@
 		};
 		52EEA47B1C80295600EC8A5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 650D5CCB3A8298B12374F10B /* Pods-TAR TUTORTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "TAR TUTORTests/Info.plist";
@@ -560,6 +662,7 @@
 		};
 		52EEA47D1C80295600EC8A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A791FA4174A465343272008 /* Pods-TAR TUTORUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "TAR TUTORUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -572,6 +675,7 @@
 		};
 		52EEA47E1C80295600EC8A5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F120B2291E6CC5ED3038F338 /* Pods-TAR TUTORUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "TAR TUTORUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
