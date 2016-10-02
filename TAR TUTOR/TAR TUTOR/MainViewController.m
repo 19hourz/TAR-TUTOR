@@ -13,6 +13,7 @@
 #define allOtherButtons 6
 #define leftView 0
 #define rightView 1
+
 @interface MainViewController()
 
 @end
@@ -22,8 +23,8 @@
 @synthesize appDelegate;
 
 UIActivityIndicatorView* mainSpinner;
-FIRDatabaseReference* loadAllClasses;
-NSDictionary* allClasses;
+Wilddog* loadAllClasses;
+NSMutableDictionary* allClasses;
 UIScrollView *rightScrollView;
 CGFloat scrollViewContentHeight;
 NSUInteger presentedViewController;
@@ -32,6 +33,9 @@ UIView* littleCircle;
 NSMutableDictionary* mapping;
 UIView* detailView;
 NSDictionary *currentClass;
+NSMutableArray<NSString*> *classes;
+UIView *chooseClassView;
+UITableView *chooseClassTableView;
 
 - (void)viewDidLoad {
     //general initialization
@@ -39,12 +43,24 @@ NSDictionary *currentClass;
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     presentedViewController = leftView;
+    classes = [[NSMutableArray alloc] init];
+    CGFloat height;
+    if (screenRect.size.height <= 400) {
+        height = 32.0;
+    }
+    else if(screenRect.size.height > 720){
+        height = 90.0;
+    }
+    else{
+        height = 50.0;
+    }
+    allClasses = [[NSMutableDictionary alloc] init];
     //add left button view
     leftButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, screenRect.size.height*0.13, screenRect.size.width, screenRect.size.height*0.87)];
     [self.view addSubview:leftButtonView];
     //add scroll view
     scrollViewContentHeight = screenRect.size.width*0.1;
-    rightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, screenRect.size.height*0.13, screenRect.size.width,  screenRect.size.height*0.87)];
+    rightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, screenRect.size.height*0.13, screenRect.size.width,  screenRect.size.height*0.87 - height)];
     [rightScrollView setContentSize:CGSizeMake(rightScrollView.bounds.size.width, scrollViewContentHeight)];
     //create a round button to create class
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -62,7 +78,7 @@ NSDictionary *currentClass;
     //create a round button
     UIButton *resumeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     resumeButton.tag = 2;
-    [resumeButton setTitle:@"Resume Class" forState:UIControlStateNormal];
+    [resumeButton setTitle:@"Resume" forState:UIControlStateNormal];
     [resumeButton.titleLabel setFont:[UIFont systemFontOfSize:20]];
     [resumeButton setTitleColor:[UIColor colorWithRed:26/255.0 green:102/255.0 blue:140/255.0 alpha:1] forState:UIControlStateNormal];
     [resumeButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -103,35 +119,73 @@ NSDictionary *currentClass;
     [right setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [right addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:right];
-    //data connection
-    loadAllClasses = [[FIRDatabase database] reference];
-    loadAllClasses = [loadAllClasses child:@"classes"];
-    allClasses = [[NSDictionary alloc] init];
-    [loadAllClasses observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
-        allClasses = snapshot.value;
-        if (allClasses == nil || ![allClasses isKindOfClass:[NSDictionary class]]) {
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"There is no class found" preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:appDelegate.defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
-        }
-        else{
-            [self showResults];
-        }
-    }];
-    detailView = [[UIView alloc] initWithFrame:CGRectMake(screenRect.size.width*0.1, screenRect.size.height*0.07, screenRect.size.width*0.8, screenRect.size.height*0.86)];
-    detailView.alpha = 1;
-    detailView.backgroundColor = [UIColor whiteColor];
-    detailView.layer.masksToBounds = NO;
-    //trial.layer.shadowOffset = CGSizeMake(1, 1);
-    detailView.layer.shadowRadius = screenRect.size.width/32.0;
-    detailView.layer.shadowOpacity = 0.3;
+
+    //sign out button
+    UIButton *signoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [signoutButton setTitle:@"sign out" forState:UIControlStateNormal];
+    [signoutButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [signoutButton setFrame:CGRectMake(screenRect.size.width - screenRect.size.width*0.21, screenRect.size.height - screenRect.size.width*0.05 - height, screenRect.size.width*0.21, screenRect.size.width*0.05)];
+    [signoutButton addTarget:self action:@selector(signOut:) forControlEvents:UIControlEventTouchUpInside];
+    [signoutButton setTitleColor:AvailableColor forState:UIControlStateNormal];
+    [leftButtonView addSubview:signoutButton];
+    
+    
+    // admob advertisement
+    //        GADBannerView  *bannerview = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait origin:CGPointMake(0, screenRect.size.height - height)];
+    //    bannerview.adUnitID = @"ca-app-pub-4823300671805719/3134098385";
+    //    bannerview.rootViewController = self;
+    //    GADRequest *request = [[GADRequest alloc] init];
+    //    request.testDevices = @[ @"b58a64b5fb68d1edd21ac7fc32a335fc" ];
+    //    //[bannerview loadRequest:request];
+    //    [bannerview loadRequest:[GADRequest request]];
+    //    [self.view addSubview:bannerview];
+    
+    // baidu ad
+//    BaiduMobAdView *sharedAdView = [[BaiduMobAdView alloc] init];
+//    //把在mssp.baidu.com上创建后获得的代码位id写到这里
+//    sharedAdView.AdUnitTag = @"2831375";
+//    sharedAdView.AdType = BaiduMobAdViewTypeBanner;
+//    sharedAdView.frame = CGRectMake(0, screenRect.size.height - height, screenRect.size.width, height);
+//    sharedAdView.delegate = self;
+//    [self.view addSubview:sharedAdView];
+//    [sharedAdView start];
+    
+    
+    // add views
+    chooseClassView = [[UIView alloc] initWithFrame:CGRectMake(screenRect.size.width*0.1, screenRect.size.height*0.07, screenRect.size.width*0.8, screenRect.size.height*0.86)];
+    chooseClassView.alpha = 1;
+    chooseClassView.backgroundColor = [UIColor whiteColor];
+    chooseClassView.layer.masksToBounds = NO;
+    chooseClassView.layer.shadowRadius = screenRect.size.width/32.0;
+    chooseClassView.layer.shadowOpacity = 0.3;
+    chooseClassTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, screenRect.size.height*0.08, screenRect.size.width*0.75, screenRect.size.height*0.72 - chooseClassView.frame.size.height*0.1)];
+    chooseClassTableView.delegate = self;
+    chooseClassTableView.dataSource = self;
+    UILabel *info = [[UILabel alloc] initWithFrame:CGRectMake(screenRect.size.height*0.02, 0, screenRect.size.width*0.78, screenRect.size.height*0.07)];
+    [info setText:@"Select which class to resume"];
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    backButton.frame = CGRectMake(chooseClassView.frame.size.width*0.10, chooseClassView.frame.size.height*0.8725, chooseClassView.frame.size.width*0.8, chooseClassView.frame.size.height*0.1);
+    [backButton setBackgroundColor:[UIColor redColor]];
+    [backButton setTitle:@"Close" forState:UIControlStateNormal];
+    [backButton.titleLabel setFont:[UIFont systemFontOfSize:20]];
+    [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    backButton.layer.borderColor = [UIColor clearColor].CGColor;
+    backButton.layer.borderWidth=1.0f;
+    backButton.layer.cornerRadius = screenRect.size.width*0.4/10.0f;
+    [backButton addTarget:self action:@selector(closeTableView) forControlEvents:UIControlEventTouchUpInside];
+    [chooseClassView addSubview:backButton];
+    [chooseClassView addSubview:chooseClassTableView];
+    [chooseClassView addSubview:info];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     appDelegate.name = [defaults objectForKey:@"name"];
-    [[FIRAuth auth] signInWithEmail:[defaults objectForKey:@"account"] password:[defaults objectForKey:@"password"] completion:^(FIRUser *_Nullable user,NSError *error){
+    Wilddog *wilddog = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
+    [wilddog authUser:[defaults objectForKey:@"account"] password:[defaults objectForKey:@"password"] withCompletionBlock:^(NSError * _Nullable error, WAuthData * _Nullable authData) {
         if (error) {
             if([mainSpinner isAnimating]){
                 [mainSpinner stopAnimating];
@@ -146,15 +200,15 @@ NSDictionary *currentClass;
             [self presentViewController:alert animated:YES completion:nil];
             
         } else {
-            FIRDatabaseReference* checkIfIsTutor = [[FIRDatabase database] reference];
-            checkIfIsTutor = [checkIfIsTutor child:@"users"];
-            [checkIfIsTutor observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
+            Wilddog* checkIfIsTutor = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
+            checkIfIsTutor = [checkIfIsTutor childByAppendingPath:@"users"];
+            [checkIfIsTutor observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
                 NSDictionary *allUsers = snapshot.value;
                 if([mainSpinner isAnimating]){
                     [mainSpinner stopAnimating];
                 }
-                if([allUsers objectForKey:user.uid]!=nil){
-                    allUsers = allUsers[user.uid];
+                if([allUsers objectForKey:authData.uid]!=nil){
+                    allUsers = allUsers[authData.uid];
                     if([allUsers[@"id"] isEqualToString:@"tutor"]){
                         [defaults setObject:@"False" forKey:@"signOut"];
                         [defaults setObject:allUsers[@"name"] forKey:@"name"];
@@ -171,29 +225,11 @@ NSDictionary *currentClass;
                     }
                 }
             }];
-            appDelegate.uid = user.uid;
+            appDelegate.uid = authData.uid;
         }
     }];
-    // add advertisement
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat height;
-    if (screenRect.size.height <= 400) {
-        height = 32.0;
-    }
-    else if(screenRect.size.height > 720){
-        height = 90.0;
-    }
-    else{
-        height = 50.0;
-    }
-    GADBannerView  *bannerview = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait origin:CGPointMake(0, screenRect.size.height - height)];
-    bannerview.adUnitID = @"ca-app-pub-4823300671805719/3134098385";
-    bannerview.rootViewController = self;
-    GADRequest *request = [[GADRequest alloc] init];
-    request.testDevices = @[ @"b58a64b5fb68d1edd21ac7fc32a335fc" ];
-    //[bannerview loadRequest:request];
-    [bannerview loadRequest:[GADRequest request]];
-    [self.view addSubview:bannerview];
+
+    
 }
 
 - (void)didTapButton:(UIButton *)button{
@@ -210,13 +246,13 @@ NSDictionary *currentClass;
     }
     else if(button.tag == 1){
         [mainSpinner startAnimating];
-        FIRDatabaseReference *oberser = appDelegate.firebase;
-        [oberser child:@"classes"];
-        [oberser observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
+        Wilddog *observer = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
+        observer = [observer childByAppendingPath:@"classes"];
+        [observer observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
             NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
             [dateformate setDateFormat:@"dd-MM-YYYY"];
             NSString *date_String=[dateformate stringFromDate:[NSDate date]];
-            NSMutableDictionary *allDates = snapshot.value[@"classes"];
+            NSMutableDictionary *allDates = snapshot.value;
             if(allDates.count==0){//changed
                 NSLog(@"no class yet");
                 double CurrentTime = CACurrentMediaTime();
@@ -231,11 +267,12 @@ NSDictionary *currentClass;
                 }
                 NSString *classuid = [NSString stringWithFormat:@"%lu", (unsigned long)uid];
                 NSDictionary *classinfo = @{@"code" : classuid,
-                                           @"instructor" : appDelegate.uid};
+                                            @"instructor" : appDelegate.name,
+                                            @"uid" : appDelegate.uid};
                 NSDictionary *newClass = @{classuid : classinfo};
                 NSDictionary *newClasses = @{date_String : newClass};
-                NSDictionary *classes = @{@"classes" : newClasses};
-                [oberser updateChildValues:classes];
+                //NSDictionary *classes = @{@"classes" : newClasses};
+                [observer updateChildValues:newClasses];
                 appDelegate.currentClassCode = classuid;
                 if([mainSpinner isAnimating]){
                     [mainSpinner stopAnimating];
@@ -258,14 +295,15 @@ NSDictionary *currentClass;
                 NSString *classuid = [NSString stringWithFormat:@"%lu", (unsigned long)uid];
                 NSLog(@"%@ and %@", classuid, appDelegate.name);
                 NSDictionary *classinfo = @{@"code" : classuid,
-                                            @"instructor" : appDelegate.name};
+                                            @"instructor" : appDelegate.name,
+                                            @"uid" : appDelegate.uid};
                 if(allClasses != nil)
                     [allClasses setObject:classinfo forKey:classuid];
                 else
                     allClasses = (NSMutableDictionary *)@{classuid : classinfo};
                 [allDates setObject:allClasses forKey:date_String];
-                NSDictionary *classes = @{@"classes" : allDates};
-                [oberser updateChildValues:classes];
+                //NSDictionary *classes = @{@"classes" : allDates};
+                [observer updateChildValues:allDates];
                 appDelegate.currentClassCode = classuid;
                 if([mainSpinner isAnimating]){
                     [mainSpinner stopAnimating];
@@ -277,13 +315,13 @@ NSDictionary *currentClass;
     }
     else if(button.tag == 2){
         [mainSpinner startAnimating];
-        FIRDatabaseReference *oberser = appDelegate.firebase;
-        [oberser child:@"classes"];
-        [oberser observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
+        Wilddog *observer = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
+        observer = [observer childByAppendingPath:@"classes"];
+        [observer observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
             NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
             [dateformate setDateFormat:@"dd-MM-YYYY"];
             NSString *date_String=[dateformate stringFromDate:[NSDate date]];
-            NSMutableDictionary *allDates = snapshot.value[@"classes"];
+            NSMutableDictionary *allDates = snapshot.value;
             if(allDates.count==0){//changed
                 NSLog(@"no class yet");
                 if([mainSpinner isAnimating]){
@@ -298,8 +336,9 @@ NSDictionary *currentClass;
                 NSArray<NSString *> *allcodes = allClasses.allKeys;
                 NSString *classuid = [[NSString alloc] init];
                 for(int i = 0; i < allcodes.count; ++i){
-                    if([allClasses[allcodes[i]][@"instructor"] isEqualToString:appDelegate.name]){
+                    if([allClasses[allcodes[i]][@"uid"] isEqualToString:observer.authData.uid]){
                         classuid = allcodes[i];
+                        [classes addObject:classuid];
                     }
                 }
                 if([mainSpinner isAnimating]){
@@ -307,8 +346,13 @@ NSDictionary *currentClass;
                 }
                 if(![classuid isEqualToString:@""]){
                     appDelegate.currentClassCode = classuid;
-                    UIViewController* viewcontroller = [appDelegate.storyboard instantiateViewControllerWithIdentifier:@"CurrentClassViewController"];
-                    [self presentViewController:viewcontroller animated:YES completion:nil];
+                    if (classes.count == 1) {
+                        UIViewController* viewcontroller = [appDelegate.storyboard instantiateViewControllerWithIdentifier:@"CurrentClassViewController"];
+                        [self presentViewController:viewcontroller animated:YES completion:nil];
+                    }
+                    else {
+                        [self.view addSubview:chooseClassView];
+                    }
                 }
                 else{
                     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"There is no class found" preferredStyle:UIAlertControllerStyleAlert];
@@ -334,10 +378,19 @@ NSDictionary *currentClass;
             //do nothing
         }
         else{
+            [mainSpinner startAnimating];
             [littleCircle setFrame:CGRectMake(screenRect.size.width*0.75, screenRect.size.height*0.115, screenRect.size.width*0.05, screenRect.size.width*0.05)];
             presentedViewController = rightView;
             [leftButtonView removeFromSuperview];
             [self.view addSubview:rightScrollView];
+            if (allClasses.count == 0) {
+                [self getClassesFor:7 today:[NSDate date]];
+            } else {
+                [mainSpinner stopAnimating];
+            }
+//            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"HEY" message:@"This screen is still under developing\nPlease share your ideas!" preferredStyle:UIAlertControllerStyleAlert];
+//            [alert addAction:appDelegate.defaultAction];
+//            [self presentViewController:alert animated:YES completion:nil];
         }
     }
     else if(button.tag == 5){
@@ -347,6 +400,12 @@ NSDictionary *currentClass;
         [self presentViewController:alert animated:YES completion:nil];
     }
     else{
+        detailView = [[UIView alloc] initWithFrame:CGRectMake(screenRect.size.width*0.1, screenRect.size.height*0.07, screenRect.size.width*0.8, screenRect.size.height*0.86)];
+        detailView.alpha = 1;
+        detailView.backgroundColor = [UIColor whiteColor];
+        detailView.layer.masksToBounds = NO;
+        detailView.layer.shadowRadius = screenRect.size.width/32.0;
+        detailView.layer.shadowOpacity = 0.3;
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         backButton.frame = CGRectMake(detailView.frame.size.width*0.10, detailView.frame.size.height*0.8725, detailView.frame.size.width*0.8, detailView.frame.size.height*0.1);
         backButton.tag = 0;
@@ -375,7 +434,7 @@ NSDictionary *currentClass;
         [detailView addSubview:copyButton];
         NSUInteger index = button.tag - allOtherButtons;
         NSArray* allDates = allClasses.allKeys;
-        NSDictionary *temp = [mapping objectForKey:[NSString stringWithFormat:@"%lu", index ]];
+        NSDictionary *temp = [mapping objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)index ]];
         NSUInteger i = (NSUInteger)[temp.allKeys[0] integerValue];
         NSUInteger j = (NSUInteger)[[temp objectForKey:temp.allKeys[0]] integerValue];
         NSDictionary* oneDay = allClasses[allDates[i]];
@@ -387,12 +446,12 @@ NSDictionary *currentClass;
         CGFloat averageBatteryUse = 0.0;
         CGFloat averageInClassTime = 0.0;
         if(currentClass[@"students"] == nil){
-            NSLog(@"Num of Students: %lu", numOfStudents);
+            NSLog(@"Num of Students: %lu", (unsigned long)numOfStudents);
         }
         else{
             NSDictionary* students = currentClass[@"students"];
             numOfStudents = students.allKeys.count;
-            NSLog(@"Num of Students: %lu", numOfStudents);
+            NSLog(@"Num of Students: %lu", (unsigned long)numOfStudents);
             CGFloat totalInClassTime = 0.0;
             NSUInteger validNum = 0;
             CGFloat totalBatteryUse = 0.0;
@@ -427,7 +486,7 @@ NSDictionary *currentClass;
             NSLog(@"%f, %f", averageInClassTime, averageBatteryUse);
         }
         NSArray<NSString *>* infos = [[NSArray alloc] initWithObjects:@"Date: ", @"Code: ", @"Instructor: ", @"Num of students: ", @"Average use of battery", @"Average time in class: ", nil];
-        NSArray<NSString *>* datas = [[NSArray alloc] initWithObjects:allDates[i],oneDay.allKeys[j], currentClass[@"instructor"], [NSString stringWithFormat:@"%lu", numOfStudents], [[NSString stringWithFormat:@"%0.1f", averageBatteryUse] stringByAppendingString:@" \%"],[[NSString stringWithFormat:@"%0.1f", averageInClassTime] stringByAppendingString:@" minutes"], nil];
+        NSArray<NSString *>* datas = [[NSArray alloc] initWithObjects:allDates[i],oneDay.allKeys[j], currentClass[@"instructor"], [NSString stringWithFormat:@"%lu", (unsigned long)numOfStudents], [[NSString stringWithFormat:@"%0.1f", averageBatteryUse] stringByAppendingString:@" \%"],[[NSString stringWithFormat:@"%0.1f", averageInClassTime] stringByAppendingString:@" minutes"], nil];
         CGFloat x = detailView.frame.size.width * 0.1, y = detailView.frame.size.height * 0.01;
         NSUInteger cells = 4;
         for(NSUInteger cell = 0; cell < cells; ++cell){
@@ -477,6 +536,12 @@ NSDictionary *currentClass;
     }
 }
 
+- (void)closeTableView
+{
+    [classes removeAllObjects];
+    [chooseClassView performSelectorOnMainThread:@selector(removeFromSuperview) withObject:nil waitUntilDone:NO];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -499,8 +564,8 @@ NSDictionary *currentClass;
             NSString* numOfStudents = [NSString stringWithFormat:@"%hu", num];
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             generalCounter++;
-            NSDictionary *temp = @{[NSString stringWithFormat:@"%lu", i]:[NSString stringWithFormat:@"%lu", j]};
-            [mapping setObject:temp forKey:[NSString stringWithFormat:@"%lu", generalCounter]];
+            NSDictionary *temp = @{[NSString stringWithFormat:@"%lu", (unsigned long)i]:[NSString stringWithFormat:@"%lu", (unsigned long)j]};
+            [mapping setObject:temp forKey:[NSString stringWithFormat:@"%lu", (unsigned long)generalCounter]];
             button.tag = allOtherButtons+generalCounter;
             NSString* info = @"";
             info = [info stringByAppendingString:allDates[i]];
@@ -533,5 +598,93 @@ NSDictionary *currentClass;
     }
 }
 
+- (void)signOut:(UIButton *)button{
+    Wilddog *wilddog = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
+    [wilddog unauth];
+    UIViewController* viewcontroller = [appDelegate.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+    [self presentViewController:viewcontroller animated:YES completion:nil];
+}
+
+- (void) getClassesFor: (NSInteger)days today:(NSDate *)date
+{
+    if (days > 0) {
+        loadAllClasses = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
+        loadAllClasses = [loadAllClasses childByAppendingPath:@"classes"];
+        NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+        [dateformate setDateFormat:@"dd-MM-YYYY"];
+        NSString *date_String=[dateformate stringFromDate:date];
+        loadAllClasses = [loadAllClasses childByAppendingPath:date_String];
+        [loadAllClasses observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
+            if (snapshot.value != nil && [snapshot.value isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *allClassesInOneDay = snapshot.value;
+                NSMutableDictionary *allClassesInOneDayByOneself = [[NSMutableDictionary alloc] init];
+                for (NSString* oneClass in allClassesInOneDay) {
+                    if (allClassesInOneDay[oneClass] != nil && [(allClassesInOneDay[oneClass])[@"uid"] isEqualToString:loadAllClasses.authData.uid]) {
+                        [allClassesInOneDayByOneself addEntriesFromDictionary:@{oneClass:allClassesInOneDay[oneClass]}];
+                    }
+                }
+                if (allClassesInOneDayByOneself.count > 0) {
+                    [allClasses addEntriesFromDictionary:@{date_String:allClassesInOneDayByOneself}];
+                    NSLog(@"%@", allClasses);
+                }
+                NSLog(@"%@ ;", allClassesInOneDay);
+                NSInteger day = days - 1;
+                [self getClassesFor:day today:[date dateByAddingTimeInterval:-86400.0]];
+            }
+        }];
+    } else {
+        [self showResults];
+    }
+}
+
+//- (NSString *)publisherId {
+//    return @" f1b096ab";
+//}
+//
+//-(NSString*) userCity{
+//    return @"北京";
+//}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return classes.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    return screenRect.size.height*0.07;
+}
+
+- (UITableViewCell*)tableView:(UITableView*)table cellForRowAtIndexPath:(NSIndexPath *)index
+{
+    static NSString *CellIdentifier = @"Class";
+    UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.textLabel.font = [UIFont systemFontOfSize:18];
+        cell.textLabel.numberOfLines = 0;
+    }
+    NSString *number = @"";
+    number = [number stringByAppendingFormat:@"%ld",(long)index.row ];
+    cell.textLabel.text = classes[index.row];
+    return cell;
+}
+
+- (void) tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath*)indexPath{
+    UITableViewCell *cell = [table cellForRowAtIndexPath:indexPath];
+    if(cell!=nil){
+        NSString *number = @"";
+        number = [number stringByAppendingFormat:@"%ld",(long)indexPath.row ];
+        appDelegate.currentClassCode = classes[indexPath.row];
+        UIViewController* viewcontroller = [appDelegate.storyboard instantiateViewControllerWithIdentifier:@"CurrentClassViewController"];
+        [self presentViewController:viewcontroller animated:YES completion:nil];
+    }
+    [classes removeAllObjects];
+    [chooseClassView removeFromSuperview];
+}
 
 @end

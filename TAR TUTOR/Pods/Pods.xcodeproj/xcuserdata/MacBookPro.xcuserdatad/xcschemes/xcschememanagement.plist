@@ -9,12 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-TAR TUTORTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TAR TUTORUITests.xcscheme</key>
+		<key>Wilddog.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>AA86963B69B42AE3E0DD41DCF10E7450</key>
+		<key>24FAA6D6F29ED9151FB34B2F10F63E4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B752DA4A9D818F0478DE7EDA1B383073</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D63D3D6E378BA7575362C6343547B50A</key>
+		<key>E2666F9A485960FF2354354A930C3273</key>
 		<dict>
 			<key>primary</key>
 			<true/>

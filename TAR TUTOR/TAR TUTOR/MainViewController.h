@@ -10,7 +10,7 @@
 #define MainViewController_h
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-@interface MainViewController : UIViewController<UITextFieldDelegate>
+@interface MainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>//BaiduMobAdViewDelegate, 
 
 @property (strong, nonatomic) AppDelegate *appDelegate;
 

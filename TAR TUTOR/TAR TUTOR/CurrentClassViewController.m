@@ -52,15 +52,16 @@
     NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
     [dateformate setDateFormat:@"dd-MM-YYYY"];
     NSString *date_String=[dateformate stringFromDate:[NSDate date]];
-    FIRDatabaseReference *currClass = [appDelegate.firebase child:@"classes"];
-    currClass = [currClass child:date_String];
-    currClass = [currClass child:appDelegate.currentClassCode];
-    currClass = [currClass child:@"students"];
-    [currClass observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+    Wilddog *currClass = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
+    currClass = [currClass childByAppendingPath:@"classes"];
+    currClass = [currClass childByAppendingPath:date_String];
+    currClass = [currClass childByAppendingPath:appDelegate.currentClassCode];
+    currClass = [currClass childByAppendingPath:@"students"];
+    [currClass observeEventType:WEventTypeChildAdded withBlock:^(WDataSnapshot *snapshot) {
         NSLog(@"activated");
         NSDictionary *newStudent = snapshot.value;
         CGRect contentRect = CGRectZero;
-        NSString *string = newStudent[@"email"];
+        NSString *string = newStudent[@"name"];
         if(string != nil){
             UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             button.frame = CGRectMake(0, self.view.frame.size.height*0.1 * (CGFloat)currentNum++, self.view.frame.size.width,self.view.frame.size.height*0.1);//
@@ -78,7 +79,6 @@
             contentRect = CGRectUnion(contentRect, button.frame);
             scrollView.contentSize = contentRect.size;
         }
-        //UIView* detailView = [[UIView alloc] init];
     }];
 }
 
