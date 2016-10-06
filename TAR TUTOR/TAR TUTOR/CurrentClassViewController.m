@@ -52,12 +52,12 @@
     NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
     [dateformate setDateFormat:@"dd-MM-YYYY"];
     NSString *date_String=[dateformate stringFromDate:[NSDate date]];
-    Wilddog *currClass = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-    currClass = [currClass childByAppendingPath:@"classes"];
-    currClass = [currClass childByAppendingPath:date_String];
-    currClass = [currClass childByAppendingPath:appDelegate.currentClassCode];
-    currClass = [currClass childByAppendingPath:@"students"];
-    [currClass observeEventType:WEventTypeChildAdded withBlock:^(WDataSnapshot *snapshot) {
+    WDGSyncReference *currClass = [[WDGSync sync] reference];
+    currClass = [currClass child:@"classes"];
+    currClass = [currClass child:date_String];
+    currClass = [currClass child:appDelegate.currentClassCode];
+    currClass = [currClass child:@"students"];
+    [currClass observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
         NSLog(@"activated");
         NSDictionary *newStudent = snapshot.value;
         CGRect contentRect = CGRectZero;

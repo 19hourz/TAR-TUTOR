@@ -201,8 +201,7 @@ UIActivityIndicatorView* spinner;
         }
         else{
             [spinner startAnimating];
-            Wilddog *userSignUp = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-            [userSignUp createUser:emailTextField.text password:passwordTextField.text withCompletionBlock:^(NSError * _Nullable error) {
+            [[WDGAuth auth] createUserWithEmail:emailTextField.text password:passwordTextField.text completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
                 if (error) {
                     NSString *errorMessage = [error localizedDescription];
                     [spinner stopAnimating];
@@ -210,27 +209,16 @@ UIActivityIndicatorView* spinner;
                     [alert addAction:appDelegate.defaultAction];
                     [self presentViewController:alert animated:YES completion:nil];
                 } else {
-                    [userSignUp authUser:emailTextField.text password:passwordTextField.text withCompletionBlock:^(NSError * _Nullable error, WAuthData * _Nullable authData) {
-                        if (error) {
-                            NSString *errorMessage = [error localizedDescription];
-                            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
-                            [alert addAction:appDelegate.defaultAction];
-                            [self presentViewController:alert animated:YES completion:nil];
-                        }
-                        else{
-                            appDelegate.uid = authData.uid;
-                            NSDictionary *user_info = @{
-                                                        @"email" : emailTextField.text,
-                                                        @"id" : @"tutor",
-                                                        @"name" : nameTextField.text
-                                                        };
-                            appDelegate.email = emailTextField.text;
-                            appDelegate.name = nameTextField.text;
-                            NSDictionary *new_user = @{appDelegate.uid : user_info};
-                            Wilddog *userInfo = [userSignUp childByAppendingPath:@"users"];
-                            [userInfo updateChildValues:new_user];
-                        }
-                    }];
+                    appDelegate.uid = user.uid;
+                    NSDictionary *user_info = @{
+                                                @"email" : emailTextField.text,
+                                                @"id" : @"tutor",
+                                                @"name" : nameTextField.text
+                                                };
+                    appDelegate.email = emailTextField.text;
+                    appDelegate.name = nameTextField.text;
+                    WDGSyncReference *userInfo = [[WDGSync sync] referenceWithPath:@"/users"];
+                    [userInfo updateChildValues:@{appDelegate.uid : user_info}];
                     [spinner stopAnimating];
                     NSLog(@"user should have signed up");
                     UIViewController* viewcontroller = [appDelegate.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];

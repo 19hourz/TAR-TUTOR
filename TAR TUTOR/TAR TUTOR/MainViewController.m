@@ -23,7 +23,7 @@
 @synthesize appDelegate;
 
 UIActivityIndicatorView* mainSpinner;
-Wilddog* loadAllClasses;
+WDGSyncReference* loadAllClasses;
 NSMutableDictionary* allClasses;
 UIScrollView *rightScrollView;
 CGFloat scrollViewContentHeight;
@@ -60,7 +60,7 @@ UITableView *chooseClassTableView;
     [self.view addSubview:leftButtonView];
     //add scroll view
     scrollViewContentHeight = screenRect.size.width*0.1;
-    rightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, screenRect.size.height*0.13, screenRect.size.width,  screenRect.size.height*0.87 - height)];
+    rightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, screenRect.size.height*0.13, screenRect.size.width,  screenRect.size.height*0.87)];
     [rightScrollView setContentSize:CGSizeMake(rightScrollView.bounds.size.width, scrollViewContentHeight)];
     //create a round button to create class
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -184,8 +184,7 @@ UITableView *chooseClassTableView;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     appDelegate.name = [defaults objectForKey:@"name"];
-    Wilddog *wilddog = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-    [wilddog authUser:[defaults objectForKey:@"account"] password:[defaults objectForKey:@"password"] withCompletionBlock:^(NSError * _Nullable error, WAuthData * _Nullable authData) {
+    [[WDGAuth auth] signInWithEmail:[defaults objectForKey:@"account"] password:[defaults objectForKey:@"password"] completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
         if (error) {
             if([mainSpinner isAnimating]){
                 [mainSpinner stopAnimating];
@@ -200,15 +199,16 @@ UITableView *chooseClassTableView;
             [self presentViewController:alert animated:YES completion:nil];
             
         } else {
-            Wilddog* checkIfIsTutor = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-            checkIfIsTutor = [checkIfIsTutor childByAppendingPath:@"users"];
-            [checkIfIsTutor observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
+            appDelegate.uid = user.uid;
+            WDGSyncReference* checkIfIsTutor = [[WDGSync sync] reference];
+            checkIfIsTutor = [checkIfIsTutor child:@"users"];
+            [checkIfIsTutor observeSingleEventOfType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
                 NSDictionary *allUsers = snapshot.value;
                 if([mainSpinner isAnimating]){
                     [mainSpinner stopAnimating];
                 }
-                if([allUsers objectForKey:authData.uid]!=nil){
-                    allUsers = allUsers[authData.uid];
+                if([allUsers objectForKey:user.uid]!=nil){
+                    allUsers = allUsers[user.uid];
                     if([allUsers[@"id"] isEqualToString:@"tutor"]){
                         [defaults setObject:@"False" forKey:@"signOut"];
                         [defaults setObject:allUsers[@"name"] forKey:@"name"];
@@ -225,11 +225,9 @@ UITableView *chooseClassTableView;
                     }
                 }
             }];
-            appDelegate.uid = authData.uid;
+            appDelegate.uid = user.uid;
         }
     }];
-
-    
 }
 
 - (void)didTapButton:(UIButton *)button{
@@ -246,9 +244,9 @@ UITableView *chooseClassTableView;
     }
     else if(button.tag == 1){
         [mainSpinner startAnimating];
-        Wilddog *observer = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-        observer = [observer childByAppendingPath:@"classes"];
-        [observer observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
+        WDGSyncReference *observer = [[WDGSync sync] reference];
+        observer = [observer child:@"classes"];
+        [observer observeSingleEventOfType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
             NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
             [dateformate setDateFormat:@"dd-MM-YYYY"];
             NSString *date_String=[dateformate stringFromDate:[NSDate date]];
@@ -315,9 +313,9 @@ UITableView *chooseClassTableView;
     }
     else if(button.tag == 2){
         [mainSpinner startAnimating];
-        Wilddog *observer = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-        observer = [observer childByAppendingPath:@"classes"];
-        [observer observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
+        WDGSyncReference *observer = [[WDGSync sync] reference];
+        observer = [observer child:@"classes"];
+        [observer observeSingleEventOfType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
             NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
             [dateformate setDateFormat:@"dd-MM-YYYY"];
             NSString *date_String=[dateformate stringFromDate:[NSDate date]];
@@ -336,7 +334,7 @@ UITableView *chooseClassTableView;
                 NSArray<NSString *> *allcodes = allClasses.allKeys;
                 NSString *classuid = [[NSString alloc] init];
                 for(int i = 0; i < allcodes.count; ++i){
-                    if([allClasses[allcodes[i]][@"uid"] isEqualToString:observer.authData.uid]){
+                    if([allClasses[allcodes[i]][@"uid"] isEqualToString: appDelegate.uid]){
                         classuid = allcodes[i];
                         [classes addObject:classuid];
                     }
@@ -599,8 +597,7 @@ UITableView *chooseClassTableView;
 }
 
 - (void)signOut:(UIButton *)button{
-    Wilddog *wilddog = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-    [wilddog unauth];
+    [[WDGAuth auth] signOut:nil];
     UIViewController* viewcontroller = [appDelegate.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
     [self presentViewController:viewcontroller animated:YES completion:nil];
 }
@@ -608,18 +605,18 @@ UITableView *chooseClassTableView;
 - (void) getClassesFor: (NSInteger)days today:(NSDate *)date
 {
     if (days > 0) {
-        loadAllClasses = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-        loadAllClasses = [loadAllClasses childByAppendingPath:@"classes"];
+        loadAllClasses = [[WDGSync sync] reference];
+        loadAllClasses = [loadAllClasses child:@"classes"];
         NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
         [dateformate setDateFormat:@"dd-MM-YYYY"];
         NSString *date_String=[dateformate stringFromDate:date];
-        loadAllClasses = [loadAllClasses childByAppendingPath:date_String];
-        [loadAllClasses observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
+        loadAllClasses = [loadAllClasses child:date_String];
+        [loadAllClasses observeSingleEventOfType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
             if (snapshot.value != nil && [snapshot.value isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *allClassesInOneDay = snapshot.value;
                 NSMutableDictionary *allClassesInOneDayByOneself = [[NSMutableDictionary alloc] init];
                 for (NSString* oneClass in allClassesInOneDay) {
-                    if (allClassesInOneDay[oneClass] != nil && [(allClassesInOneDay[oneClass])[@"uid"] isEqualToString:loadAllClasses.authData.uid]) {
+                    if (allClassesInOneDay[oneClass] != nil && [(allClassesInOneDay[oneClass])[@"uid"] isEqualToString:appDelegate.uid]) {
                         [allClassesInOneDayByOneself addEntriesFromDictionary:@{oneClass:allClassesInOneDay[oneClass]}];
                     }
                 }
@@ -628,6 +625,10 @@ UITableView *chooseClassTableView;
                     NSLog(@"%@", allClasses);
                 }
                 NSLog(@"%@ ;", allClassesInOneDay);
+                NSInteger day = days - 1;
+                [self getClassesFor:day today:[date dateByAddingTimeInterval:-86400.0]];
+            }
+            else{
                 NSInteger day = days - 1;
                 [self getClassesFor:day today:[date dateByAddingTimeInterval:-86400.0]];
             }

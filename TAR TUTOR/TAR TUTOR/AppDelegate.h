@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import <Wilddog/Wilddog.h>
+#import "Wilddog.h"
 //#import "BaiduMobAdSDK/BaiduMobAdView.h"
 //#import "BaiduMobAdSDK/BaiduMobAdDelegateProtocol.h"
 //#import "BaiduMobAdSDK/BaiduMobAdSplash.h"

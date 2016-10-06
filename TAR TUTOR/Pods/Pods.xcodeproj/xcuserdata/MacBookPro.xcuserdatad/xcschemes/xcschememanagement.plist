@@ -9,20 +9,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Wilddog.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>24FAA6D6F29ED9151FB34B2F10F63E4C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E2666F9A485960FF2354354A930C3273</key>
+		<key>B752DA4A9D818F0478DE7EDA1B383073</key>
 		<dict>
 			<key>primary</key>
 			<true/>

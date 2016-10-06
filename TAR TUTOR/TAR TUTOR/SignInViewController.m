@@ -128,9 +128,7 @@ UIActivityIndicatorView* signinSpinner;
 - (void)signin
 {
     [signinSpinner startAnimating];
-    Wilddog *authUser = [[Wilddog alloc] initWithUrl:@"https://tar.wilddogio.com"];
-    [authUser authUser:signinEmailTextField.text password:signinPasswordTextField.text withCompletionBlock:^(NSError * _Nullable error, WAuthData * _Nullable authData) {
-        
+    [[WDGAuth auth] signInWithEmail:signinEmailTextField.text password:signinPasswordTextField.text completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
         if (error) {
             [signinSpinner stopAnimating];
             NSString *errorMessage = [error localizedDescription];
@@ -139,7 +137,7 @@ UIActivityIndicatorView* signinSpinner;
             [self presentViewController:alert animated:YES completion:nil];
             
         } else {
-            appDelegate.uid = authData.uid;
+            appDelegate.uid = user.uid;
             NSString *account = [signinEmailTextField text];
             NSString *password  = [signinPasswordTextField text];
             NSString *signOut  = @"False";
@@ -147,12 +145,13 @@ UIActivityIndicatorView* signinSpinner;
             [defaults setObject:account forKey:@"account"];
             [defaults setObject:password forKey:@"password"];
             [defaults synchronize];
-            Wilddog* checkIfIsTutor = [authUser childByAppendingPath:@"users"];
-            [checkIfIsTutor observeSingleEventOfType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
+            WDGSyncReference *checkIfIsTutor = [[WDGSync sync] reference];
+            checkIfIsTutor = [checkIfIsTutor child:@"users"];
+            [checkIfIsTutor observeSingleEventOfType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
                 NSDictionary *allUsers = snapshot.value;
                 [signinSpinner stopAnimating];
-                if([allUsers objectForKey:authData.uid]!=nil){
-                    allUsers = allUsers[authData.uid];
+                if([allUsers objectForKey:user.uid]!=nil){
+                    allUsers = allUsers[user.uid];
                     if([allUsers[@"id"] isEqualToString:@"tutor"]){
                         UIViewController* viewcontroller = [appDelegate.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
                         [self presentViewController:viewcontroller animated:YES completion:nil];
