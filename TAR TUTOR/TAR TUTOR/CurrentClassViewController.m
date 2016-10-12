@@ -25,7 +25,7 @@
     backButton.frame = CGRectMake(screenRect.size.width*0.20, screenRect.size.height*0.8725, screenRect.size.width*0.6, screenRect.size.height*0.1);
     backButton.tag = 1;
     [backButton setBackgroundColor:[UIColor redColor]];
-    [backButton setTitle:@"Leave This Class" forState:UIControlStateNormal];
+    [backButton setTitle:@"BCAK" forState:UIControlStateNormal];
     [backButton.titleLabel setFont:[UIFont systemFontOfSize:20]];
     [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -60,24 +60,27 @@
     [currClass observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
         NSLog(@"activated");
         NSDictionary *newStudent = snapshot.value;
-        CGRect contentRect = CGRectZero;
-        NSString *string = newStudent[@"name"];
-        if(string != nil){
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            button.frame = CGRectMake(0, self.view.frame.size.height*0.1 * (CGFloat)currentNum++, self.view.frame.size.width,self.view.frame.size.height*0.1);//
-            [button setBackgroundColor:[UIColor colorWithRed:229.0/255.0 green:247.0/255.0 blue:248.0/255.0 alpha:1]];
-            button.tag = currentNum;//
-            NSLog(@"new student is: %@", newStudent);
-            [button setTitle:[NSString stringWithFormat:string, ((long)index + 1)] forState:UIControlStateNormal];
-            [button.titleLabel setFont:[UIFont systemFontOfSize:20]];
-            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [[button layer] setBorderWidth:2.0f];
-            button.layer.borderColor = [[UIColor colorWithRed:219.0/255.0 green:237.0/255.0 blue:238.0/255.0 alpha:1] CGColor];
-            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-            button.contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
-            [scrollView addSubview:button];
-            contentRect = CGRectUnion(contentRect, button.frame);
-            scrollView.contentSize = contentRect.size;
+        if ((newStudent != nil) && [newStudent isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"%@", newStudent);
+            CGRect contentRect = CGRectZero;
+            NSString *string = (NSString*)newStudent[@"name"];
+            if(string != nil){
+                UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                button.frame = CGRectMake(0, self.view.frame.size.height*0.1 * (CGFloat)currentNum++, self.view.frame.size.width,self.view.frame.size.height*0.1);//
+                [button setBackgroundColor:[UIColor colorWithRed:229.0/255.0 green:247.0/255.0 blue:248.0/255.0 alpha:1]];
+                button.tag = currentNum;//
+                NSLog(@"new student is: %@", newStudent);
+                [button setTitle:[NSString stringWithFormat:string, ((long)index + 1)] forState:UIControlStateNormal];
+                [button.titleLabel setFont:[UIFont systemFontOfSize:20]];
+                [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                [[button layer] setBorderWidth:2.0f];
+                button.layer.borderColor = [[UIColor colorWithRed:219.0/255.0 green:237.0/255.0 blue:238.0/255.0 alpha:1] CGColor];
+                button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+                button.contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
+                [scrollView addSubview:button];
+                contentRect = CGRectUnion(contentRect, button.frame);
+                scrollView.contentSize = contentRect.size;
+            }
         }
     }];
 }

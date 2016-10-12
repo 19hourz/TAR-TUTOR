@@ -393,7 +393,7 @@ UITableView *chooseClassTableView;
     }
     else if(button.tag == 5){
         [UIPasteboard generalPasteboard].string = [NSString stringWithFormat:@"%@", currentClass];
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Copied!" message:@"Please open another app and you could paste the details of this class to it" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Copied!" message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:appDelegate.defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     }

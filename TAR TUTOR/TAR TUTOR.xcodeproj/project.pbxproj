@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		52215C3D1CB473A50092D8C0 /* CurrentClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52215C3C1CB473A50092D8C0 /* CurrentClassViewController.m */; };
-		524DA2791CC8097100E54422 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524DA2781CC8097100E54422 /* ResultsViewController.m */; };
 		52801CBB1CB38A8600062357 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CBA1CB38A8600062357 /* SignInViewController.m */; };
 		52801CBE1CB43BE300062357 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CBD1CB43BE300062357 /* SignUpViewController.m */; };
 		52801CC11CB442D200062357 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52801CC01CB442D200062357 /* MainViewController.m */; };
@@ -48,8 +47,6 @@
 		4743D49C234A98475367CEB7 /* Pods-TAR TUTOR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAR TUTOR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TAR TUTOR/Pods-TAR TUTOR.debug.xcconfig"; sourceTree = "<group>"; };
 		52215C3B1CB473990092D8C0 /* CurrentClassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentClassViewController.h; sourceTree = "<group>"; };
 		52215C3C1CB473A50092D8C0 /* CurrentClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentClassViewController.m; sourceTree = "<group>"; };
-		524DA2771CC8095500E54422 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
-		524DA2781CC8097100E54422 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		52801CB91CB38A5A00062357 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		52801CBA1CB38A8600062357 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		52801CBC1CB43BD400062357 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -141,8 +138,6 @@
 				52801CC01CB442D200062357 /* MainViewController.m */,
 				52215C3B1CB473990092D8C0 /* CurrentClassViewController.h */,
 				52215C3C1CB473A50092D8C0 /* CurrentClassViewController.m */,
-				524DA2771CC8095500E54422 /* ResultsViewController.h */,
-				524DA2781CC8097100E54422 /* ResultsViewController.m */,
 				52EEA4521C80295600EC8A5A /* Main.storyboard */,
 				52EEA4581C80295600EC8A5A /* Assets.xcassets */,
 				52EEA45A1C80295600EC8A5A /* LaunchScreen.storyboard */,
@@ -393,7 +388,6 @@
 				52801CBB1CB38A8600062357 /* SignInViewController.m in Sources */,
 				52215C3D1CB473A50092D8C0 /* CurrentClassViewController.m in Sources */,
 				52EEA44E1C80295600EC8A5A /* AppDelegate.m in Sources */,
-				524DA2791CC8097100E54422 /* ResultsViewController.m in Sources */,
 				52EEA4571C80295600EC8A5A /* TAR_TUTOR.xcdatamodeld in Sources */,
 				52801CC11CB442D200062357 /* MainViewController.m in Sources */,
 				52EEA44B1C80295600EC8A5A /* main.m in Sources */,
